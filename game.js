@@ -9,9 +9,9 @@ B=(p,s,e,r)=>{for(i=s;i<e;i+=.05)m[p+(M.sin(i)*r<<0)*a+M.cos(i)*r<<0]='#'}
 C=(i,p)=>(o=F(p))&&L[o]?--L[o]:m[p]=='.'?P[i]=p:0
 F=(p)=>P.findIndex(w=>w==p)
 H=(i,p,d)=>{
-h=d%a-p%a,v=d/a-p/a;
-u=(h?a:-a)+(v?-1:1)
-C(i,p-u)
+h=(d%a-p%a)>=0?1:-1,v=M.round(d/a-p/a)>=0?a:-a;
+C(i,p+h+v)
+console.log(i)
 console.log(h+'v'+v+": "+u)
 return ""
 }
