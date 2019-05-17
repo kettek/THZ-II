@@ -1,30 +1,23 @@
 M=Math,A=Array
-a=49,Z=10,c=9
+a=70,c=9
 y=a*a+a
 R=()=>M.random()*y<<0
-L=A(Z).fill(2)
+L=A(20).fill(2)
 P=[]
 m=A(y).fill('.')
-B=(p,s,e,r)=>{for(i=s;i<e;i+=.05)m[p+(M.sin(i)*r<<0)*a+M.cos(i)*r<<0]='#'}
-C=(i,p)=>(o=F(p))&&L[o]?--L[o]:m[p]=='.'?P[i]=p:0
-F=(p)=>P.findIndex(w=>w==p)
-H=(i,p,d)=>{
-h=(d%a-p%a)>=0?1:-1,v=M.round(d/a-p/a)>=0?a:-a;
-C(i,p+h+v)
-console.log(i)
-console.log(h+'v'+v+": "+u)
-return ""
-}
-
-for(z in L)P[z]=R(),B(R(),1,M.PI*2,5),m[R()]='*'
+B=p=>{for(s=0;s<6;s+=.4)m[p+~~(M.sin(s)*5)*a+M.cos(s)*5<<0]='#'}
+C=(i,p,o=F(p))=>L[o]?--L[o]:m[p]=='.'?P[i]=p:0
+F=p=>P.findIndex(w=>w==p)
+H=(i,p,d)=>C(i,p+((d%a-p%a)>=0?1:-1)+(~~d/a-p/a>=0?a:-a))
+for(z in L)P[z]=R(),B(R()),m[R()]='*'
+m[R()]='H'
 L[0]=c
-
-onkeyup=e=>{
-d=1-e.which%4
+onkeyup=e=>{d=1-e.which%4
 C(0,P[0]+(d%2?d*a:-d-1))
-r=L[0]+"hp\n"
-for(y=-c;y<c;y++){for(x=-c;x<c;x++){
-p=P[0]+y*a+x,T=F(p),T>=0?r+=L[T]?T==0?'@':'z'+(H(T,p,P[0])):',':r+=m[p]||' '
-}r+='\n'}
-console.log(r)
-}
+for(z in L)L[++z]?H(z,P[z],P[0]):0
+r=''
+for(y=-c;y++<c;){for(x=-c;x++<c;){
+p=P[0]+y*a+x
+T=F(p)
+r+=T>=0?L[T]?T==0?L[0]:'z':',':m[p]||'~'}r+=`
+`}console.log(r)}
