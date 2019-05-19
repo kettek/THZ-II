@@ -12,4 +12,4 @@ onkeyup=e=>{d=1-e.which%4
 for(i in L)L[i]?i-1?H(P[i],P[1]):C(P[1]+(d%2?d*a:-d-1)):r=''
 for(y=-c;y++<c;r+=`
 `)for(x=-c;x++<c;r+=T+1?T?L[T]?T-1?'ö':L[1]:',':'H':m[p]||'~')T=F(p=P[1]+y*a+x)
-console.log(L[1]?P[0]-P[1]?r:"yeet":"heck")}
+console.log(L[1]?P[0]-P[1]?r:"yeet":"deth")}
